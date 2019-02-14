@@ -1,12 +1,31 @@
 package datestuff;
 
+import javax.naming.ServiceUnavailableException;
+
 public class Date {
+  private int day;
+  private int month;
+  private int year;
+
+  public Date(int day, int month, int year) {
+    this.day = day;
+    this.month = month;
+    this.year = year;
+  }
+
+  public int getDay() {
+    return this.day;
+  }
+
   public static boolean isLeapYear(int year) {
     return year % 4 == 0 && (year % 100 != 0 || year % 400 == 0);
   }
 
-  public static int daysInMonth(int month, int year) {
-    // legal month??
+  public static int daysInMonth(int month, int year)
+      throws ServiceUnavailableException {
+    if (month < 1 || month > 12) {
+      throw new ServiceUnavailableException("Bad Date");
+    }
     switch (month) { // int, String, "enum" but not "general types"
       case 9: case 4:
 //        System.out.println("hit four!!!");
@@ -38,4 +57,13 @@ public class Date {
     return dayOfWeek(day, month, 2019);
   }
 
+  public int dayOfWeek() {
+    return dayOfWeek(this.day, this.month, this.year);
+  }
+
+  @Override
+  public String toString() {
+    return "Date: day=" + this.day
+        + " month=" + this.month + " year=" + this.year;
+  }
 }

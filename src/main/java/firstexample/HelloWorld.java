@@ -65,10 +65,13 @@ public class HelloWorld {
     System.out.println("fourth item is " + names[3]);
 
     //java.awt.List ll; // longhand name for unimported, or ambiguous...
+//    List<Object> namesL = new ArrayList<>();
     List<String> namesL = new ArrayList<>();
     namesL.add("Fred");
     namesL.add("Jim");
     namesL.add("Sheila");
+//    namesL.add(0, Double.valueOf(3.14));
+    String nZero = namesL.get(0);
     System.out.println("First name in list is " + namesL.get(0));
     System.out.println("List is " + namesL);
   }

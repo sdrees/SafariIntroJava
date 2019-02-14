@@ -74,5 +74,9 @@ public class HelloWorld {
     String nZero = namesL.get(0);
     System.out.println("First name in list is " + namesL.get(0));
     System.out.println("List is " + namesL);
+
+    for (String s : names/*L*/) {
+      System.out.println("One of the names is " + s);
+    }
   }
 }
